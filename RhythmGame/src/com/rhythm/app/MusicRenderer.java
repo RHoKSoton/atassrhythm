@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import com.rhythm.music.Note;
+
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;

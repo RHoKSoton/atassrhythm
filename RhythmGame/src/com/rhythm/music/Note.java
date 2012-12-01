@@ -1,4 +1,4 @@
-package com.rhythm.app;
+package com.rhythm.music;
 
 import android.graphics.Bitmap;
 

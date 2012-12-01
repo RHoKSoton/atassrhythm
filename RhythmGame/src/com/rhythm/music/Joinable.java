@@ -1,6 +1,5 @@
 package com.rhythm.music;
 
-import com.rhythm.app.Note;
 
 import android.graphics.Bitmap;
 
