@@ -86,7 +86,7 @@ public class MusicRenderer extends SurfaceView implements Callback
 	{
 		ArrayList<Note> notes = new ArrayList<Note>();
 		
-		//notes.add(new Quaver(0));
+		notes.add(new Quaver(0));
 		
 		float noteOffset = 0;
 		Rect screenArea = canvas.getClipBounds();
