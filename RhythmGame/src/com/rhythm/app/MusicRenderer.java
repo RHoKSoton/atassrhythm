@@ -4,10 +4,8 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import com.rhythm.music.Note;
-import com.rhythm.music.Quaver;
-
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -16,6 +14,14 @@ import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
+
+import com.rhythm.music.Crotchet;
+import com.rhythm.music.IconType;
+import com.rhythm.music.Minim;
+import com.rhythm.music.Note;
+import com.rhythm.music.Quaver;
+import com.rhythm.music.Semibreve;
+import com.rhythm.music.Semiquaver;
 
 
 public class MusicRenderer extends SurfaceView implements Callback 
@@ -86,9 +92,13 @@ public class MusicRenderer extends SurfaceView implements Callback
 	{
 		ArrayList<Note> notes = new ArrayList<Note>();
 		
+		notes.add(new Semibreve(0));
+		notes.add(new Minim(0));
+		notes.add(new Crotchet(0));
 		notes.add(new Quaver(0));
+		notes.add(new Semiquaver(0));
 		
-		float noteOffset = 0;
+		float noteOffset = 10;
 		Rect screenArea = canvas.getClipBounds();
 		Paint white = new Paint();
 		Paint black = new Paint();
@@ -107,6 +117,20 @@ public class MusicRenderer extends SurfaceView implements Callback
 		for(int i =startPoint;i<screenArea.right-20;i+=80)
 		{
 			canvas.drawLine(i, centreY-20, i, centreY+20, black);
+		}
+		
+		int xOffset = 20 - (int)noteOffset;
+		
+		for(Note note : notes)
+		{
+			Bitmap noteImg = note.getIcon(IconType.SINGLE);
+			
+			if(xOffset >= 20 && xOffset + (noteImg.getWidth()/2) < screenArea.right-20)
+			{
+				canvas.drawBitmap(noteImg, xOffset, centreY - noteImg.getHeight() + 5, white);
+				xOffset += noteImg.getWidth() + 3;
+			}
+			if(xOffset > screenArea.right-20) break;
 		}
 	}
 }
