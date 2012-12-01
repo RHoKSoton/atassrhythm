@@ -37,5 +37,9 @@ public abstract class Note {
 	return null;
 	}
 	
+	public boolean Rest()
+	{//true for rest, false for note
+		return isRest;
+	}
 	
 }
