@@ -18,7 +18,7 @@ public abstract class Joinable extends Note {
 	}
 
 	@Override
-	protected Bitmap getIcon(IconType style)
+	public Bitmap getIcon(IconType style)
 	{
 		switch (style)
 		{

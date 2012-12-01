@@ -21,7 +21,7 @@ public abstract class Note {
 		single = singleImg;		
 	}
 	
-	protected  Bitmap getIcon(IconType style)
+	public  Bitmap getIcon(IconType style)
 	{
 		switch(style)
 		{
