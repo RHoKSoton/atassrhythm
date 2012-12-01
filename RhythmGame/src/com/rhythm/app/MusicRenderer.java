@@ -79,7 +79,7 @@ public class MusicRenderer extends SurfaceView implements Callback
 
 	public void draw(Canvas canvas)
 	{
-		float noteOffset = 70;
+		float noteOffset = 0;
 		Rect screenArea = canvas.getClipBounds();
 		Paint white = new Paint();
 		Paint black = new Paint();
