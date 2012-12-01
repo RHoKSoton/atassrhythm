@@ -6,9 +6,9 @@ public class Semibreve extends Note
 {
 
 	
-	protected Semibreve(int dots, type myType) 
+	protected Semibreve(int dots) 
 	{
-		super(1, dots, myType, MainActivity.getBitmap("one_rest"), MainActivity.getBitmap("one_single"));
+		super(1, dots, MainActivity.getBitmap("one_rest"), MainActivity.getBitmap("one_single"));
 	}
 
 

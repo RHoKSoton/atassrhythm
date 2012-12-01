@@ -9,16 +9,16 @@ public abstract class Joinable extends Note {
 	protected Bitmap endjoin;
 	
 	
-	protected Joinable(double length, int dots, type myType, Bitmap restImg, Bitmap singleImg, Bitmap injoinImg, Bitmap endjoinImg)
+	protected Joinable(double length, int dots, Bitmap restImg, Bitmap singleImg, Bitmap injoinImg, Bitmap endjoinImg)
 	{
-		super(length, dots, myType, restImg, singleImg);
+		super(length, dots, restImg, singleImg);
 		// TODO Auto-generated constructor stub
 		injoin = injoinImg;
 		endjoin = endjoinImg;
 	}
 
 	@Override
-	protected Bitmap getIcon()
+	protected Bitmap getIcon(IconType style)
 	{
 		switch (style)
 		{
