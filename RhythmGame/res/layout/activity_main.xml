@@ -6,16 +6,15 @@
     android:orientation="vertical"
     tools:context=".MainActivity" >
 
-    <SurfaceView
-        android:id="@+id/surfaceView1"
+    <com.rhythm.app.MusicRenderer
+        android:id="@+id/musicRenderer1"
         android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="2.17" />
+        android:layout_height="197dp" />
 
     <Button
         android:id="@+id/button1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:text="Tap" />
 
 </LinearLayout>

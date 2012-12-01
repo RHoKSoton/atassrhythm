@@ -7,6 +7,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceHolder.Callback;
@@ -78,9 +79,25 @@ public class MusicRenderer extends SurfaceView implements Callback
 
 	public void draw(Canvas canvas)
 	{
+		float noteOffset = 70;
+		Rect screenArea = canvas.getClipBounds();
 		Paint white = new Paint();
+		Paint black = new Paint();
+		
 		white.setColor(Color.WHITE);
+		black.setColor(Color.BLACK);
+		black.setStrokeWidth(2);
+		
+		float centreY = screenArea.exactCenterY();
 		
 		canvas.drawRect(canvas.getClipBounds(), white);
+		canvas.drawLine(20, centreY, screenArea.right-20, centreY, black);
+		
+		int startPoint = 20 + (80-(int)(noteOffset % 80))%80;
+		
+		for(int i =startPoint;i<screenArea.right-20;i+=80)
+		{
+			canvas.drawLine(i, centreY-20, i, centreY+20, black);
+		}
 	}
 }
