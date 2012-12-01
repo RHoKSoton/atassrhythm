@@ -9,9 +9,9 @@ public abstract class Joinable extends Note {
 	protected Bitmap endjoin;
 	
 	
-	protected Joinable(double length, int dots, Bitmap restImg, Bitmap singleImg, Bitmap injoinImg, Bitmap endjoinImg)
+	protected Joinable(double length, int dots, boolean aRest, Bitmap restImg, Bitmap singleImg, Bitmap injoinImg, Bitmap endjoinImg)
 	{
-		super(length, dots, restImg, singleImg);
+		super(length, dots, aRest, restImg, singleImg);
 		// TODO Auto-generated constructor stub
 		injoin = injoinImg;
 		endjoin = endjoinImg;
