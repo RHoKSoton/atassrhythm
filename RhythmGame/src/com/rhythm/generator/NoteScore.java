@@ -1,4 +1,4 @@
-package com.rhythm.app;
+package com.rhythm.generator;
 
 import com.rhythm.music.Note;
 
