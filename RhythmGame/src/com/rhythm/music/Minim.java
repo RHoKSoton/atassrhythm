@@ -1,6 +1,7 @@
 package com.rhythm.music;
 
 import com.rhythm.app.MainActivity;
+import com.rhythm.app.Note;
 
 public class Minim extends Note 
 {
