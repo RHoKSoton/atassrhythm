@@ -5,6 +5,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import com.rhythm.music.Note;
+import com.rhythm.music.Quaver;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -84,6 +85,8 @@ public class MusicRenderer extends SurfaceView implements Callback
 	public void draw(Canvas canvas)
 	{
 		ArrayList<Note> notes = new ArrayList<Note>();
+		
+		//notes.add(new Quaver(0));
 		
 		float noteOffset = 0;
 		Rect screenArea = canvas.getClipBounds();
