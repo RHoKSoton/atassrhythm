@@ -1,18 +1,15 @@
 package com.rhythm.music;
 
-import android.graphics.Bitmap;
+import com.rhythm.app.MainActivity;
 
-public class Minim extends Joinable {
+public class Minim extends Note 
+{
 
-	protected Minim(double length, int dots, type myType) {
-		super(length, dots, myType, restImg, singleImg, injoinImg, endjoinImg);
+	protected Minim(int dots, type myType) 
+	{
+		super(0.5, dots, myType, MainActivity.getBitmap("two_rest"), MainActivity.getBitmap("two_single"));
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	protected Bitmap getIcon() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

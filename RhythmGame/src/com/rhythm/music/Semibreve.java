@@ -1,21 +1,15 @@
 package com.rhythm.music;
 
-import android.graphics.Bitmap;
+import com.rhythm.app.MainActivity;
 
-public class Semibreve extends Joinable {
+public class Semibreve extends Note 
+{
 
 	
-	protected Semibreve(double length, int dots, type myType) {
-		super(0.125, 0, myType, restImg, singleImg, injoinImg, endjoinImg);
-		
+	protected Semibreve(int dots, type myType) 
+	{
+		super(1, dots, myType, MainActivity.getBitmap("one_rest"), MainActivity.getBitmap("one_single"));
 	}
 
-	@Override
-	protected Bitmap getIcon() {
-
-
-		
-		return null;
-	}
 
 }

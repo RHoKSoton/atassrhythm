@@ -12,7 +12,7 @@ public abstract class Note {
 	protected type style;
 	protected double trueLength;
 	protected double undottedLength;
-	protected Bitmap icon;
+	
 	
 	protected Note(double length, int dots, type myType, Bitmap restImg, Bitmap singleImg)
 	{
@@ -23,7 +23,19 @@ public abstract class Note {
 		style = myType;
 	}
 	
-	protected abstract Bitmap getIcon();
+	protected  Bitmap getIcon()
+	{
+		switch(style)
+		{
+		case SINGLE:
+			return single;
+		case REST :
+			return rest;
+		default:
+			break;
+		}
+	return null;
+	}
 	
 	
 }
