@@ -7,7 +7,7 @@ public class Crotchet extends Note
 
 	public Crotchet(int dots, IconType myType) 
 	{
-		super(0.25, dots, myType, MainActivity.getBitmap("four_rest"), MainActivity.getBitmap("four_single"));
+		super(0.25, dots, MainActivity.getBitmap("four_rest"), MainActivity.getBitmap("four_single"));
 		// TODO Auto-generated constructor stub
 	}
 
