@@ -8,12 +8,14 @@ public abstract class Note {
 	
 	protected Bitmap rest;
 	protected Bitmap single;
+	protected boolean isRest;
 
 	protected double trueLength;
+	
 	protected double undottedLength;
 	
 	
-	protected Note(double length, int dots, Bitmap restImg, Bitmap singleImg)
+	protected Note(double length, int dots, boolean aRest, Bitmap restImg, Bitmap singleImg)
 	{
 		undottedLength = length;
 		trueLength = length * (2-2^(-dots));
