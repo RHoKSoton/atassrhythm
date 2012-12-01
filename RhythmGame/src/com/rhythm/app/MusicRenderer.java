@@ -4,6 +4,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceHolder.Callback;
@@ -57,7 +60,9 @@ public class MusicRenderer extends SurfaceView implements Callback
 			@Override
 			public void run() 
 			{
-				
+				Canvas canvas = holder.lockCanvas();
+				draw(canvas);
+				holder.unlockCanvasAndPost(canvas);
 			}
 			
 		};
@@ -71,4 +76,11 @@ public class MusicRenderer extends SurfaceView implements Callback
 		tmr.cancel();
 	}
 
+	public void draw(Canvas canvas)
+	{
+		Paint white = new Paint();
+		white.setColor(Color.WHITE);
+		
+		canvas.drawRect(canvas.getClipBounds(), white);
+	}
 }
