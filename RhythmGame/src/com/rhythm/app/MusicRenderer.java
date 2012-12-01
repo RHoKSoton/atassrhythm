@@ -92,13 +92,13 @@ public class MusicRenderer extends SurfaceView implements Callback
 	{
 		ArrayList<Note> notes = new ArrayList<Note>();
 		
-		notes.add(new Semibreve(0));
-		notes.add(new Minim(0));
-		notes.add(new Crotchet(0));
-		notes.add(new Quaver(0));
-		notes.add(new Semiquaver(0));
+		notes.add(new Semibreve(0, true));
+		notes.add(new Minim(0, true));
+		notes.add(new Crotchet(0, true));
+		notes.add(new Quaver(0, true));
+		notes.add(new Semiquaver(0, true));
 		
-		float noteOffset = 10;
+		float noteOffset = 0;
 		Rect screenArea = canvas.getClipBounds();
 		Paint white = new Paint();
 		Paint black = new Paint();
@@ -123,13 +123,13 @@ public class MusicRenderer extends SurfaceView implements Callback
 		
 		for(Note note : notes)
 		{
-			Bitmap noteImg = note.getIcon(IconType.SINGLE);
+			Bitmap noteImg = note.getIcon(note.Rest()? IconType.REST : IconType.SINGLE);
 			
 			if(xOffset >= 20 && xOffset + (noteImg.getWidth()/2) < screenArea.right-20)
 			{
-				canvas.drawBitmap(noteImg, xOffset, centreY - noteImg.getHeight() + 5, white);
-				xOffset += noteImg.getWidth() + 3;
+				canvas.drawBitmap(noteImg, xOffset, centreY - noteImg.getHeight() + (note.Rest()?noteImg.getHeight()/2:5), white);
 			}
+			xOffset += noteImg.getWidth() + 3;
 			if(xOffset > screenArea.right-20) break;
 		}
 	}
