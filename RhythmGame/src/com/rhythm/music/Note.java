@@ -2,10 +2,8 @@ package com.rhythm.music;
 
 import android.graphics.Bitmap;
 
-public abstract class Note {
-	
-	
-	
+public abstract class Note 
+{
 	protected Bitmap rest;
 	protected Bitmap single;
 	protected boolean isRest;
@@ -20,19 +18,20 @@ public abstract class Note {
 		undottedLength = length;
 		trueLength = length * (2-2^(-dots));
 		rest = restImg;
-		single = singleImg;		
+		single = singleImg;
+		isRest = aRest;
 	}
 	
 	public  Bitmap getIcon(IconType style)
 	{
 		switch(style)
 		{
-		case SINGLE:
-			return single;
-		case REST :
-			return rest;
-		default:
-			break;
+			case SINGLE:
+				return single;
+			case REST :
+				return rest;
+			default:
+				break;
 		}
 	return null;
 	}

@@ -12,18 +12,24 @@ public class RenderNote
 	
 	ArrayList<RenderNote> renderStates = new ArrayList<RenderNote>();
 	
-	public RenderNote(Note actualNote, Note prevNote, Note nextNote) 
+	public RenderNote(int notePos, ArrayList<Note> notes) 
 	{
 		//TODO:Change to isJoinable instead of instanceof
+		actualNote = getNote(notes, notePos);
+		int state = getState(getNote(notes, notePos), getNote(notes, notePos-1), getNote(notes, notePos+1)); //-1 not join, 0 start, 1 middle, 2 end
 		
-		int state = getState(actualNote, prevNote, nextNote); //-1 not join, 0 start, 1 middle, 2 end
-		
-		/*switch(state)
+		switch(state)
 		{
 			case -1: renderStates.add(new RenderNote(actualNote, IconType.SINGLE)); break;
 			case 0: renderStates.add(new RenderNote(actualNote, IconType.INJOIN)); break;
 			case 2: renderStates.add(new RenderNote(actualNote, IconType.ENDJOIN)); break;
-		}*/
+		}
+	}
+	
+	static Note getNote(ArrayList<Note> notes, int position)
+	{
+		if(position < 0 || position >= notes.size()) return null;
+		return notes.get(position);
 	}
 	
 	static int getState(Note actualNote, Note prevNote, Note nextNote)
