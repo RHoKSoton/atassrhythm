@@ -2,30 +2,28 @@ package com.rhythm.music;
 
 import android.graphics.Bitmap;
 
-public class Note {
+public abstract class Note {
+	
+	enum type {INJOIN,ENDJOIN,SINGLE,REST}
+	
+	protected Bitmap rest;
+	protected Bitmap single;
 
+	protected type style;
 	protected double trueLength;
 	protected double undottedLength;
 	protected Bitmap icon;
 	
-	public Note(double length, int dots)
+	protected Note(double length, int dots, type myType, Bitmap restImg, Bitmap singleImg)
 	{
 		undottedLength = length;
 		trueLength = length * (2-2^(-dots));
+		rest = restImg;
+		single = singleImg;		
+		style = myType;
 	}
 	
-	protected Bitmap getIcon(int length){
-		switch(length){
-		case 1 : 
-			
-		case 0.5 :
-		
-		case 0.25 :
-			
-			
-		}
-		return null;
-	}
+	protected abstract Bitmap getIcon();
 	
 	
 }
