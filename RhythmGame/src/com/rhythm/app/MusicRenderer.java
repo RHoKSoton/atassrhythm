@@ -1,5 +1,6 @@
 package com.rhythm.app;
 
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -12,6 +13,8 @@ import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
+
+import com.rhythm.music.Note;
 
 public class MusicRenderer extends SurfaceView implements Callback 
 {
@@ -79,6 +82,12 @@ public class MusicRenderer extends SurfaceView implements Callback
 
 	public void draw(Canvas canvas)
 	{
+		ArrayList<Note> notes = new ArrayList<Note>();
+		
+		notes.add(new Note(1, 0));
+		notes.add(new Note(1, 0));
+		notes.add(new Note(1, 0));
+		
 		float noteOffset = 0;
 		Rect screenArea = canvas.getClipBounds();
 		Paint white = new Paint();
