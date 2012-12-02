@@ -27,6 +27,10 @@ public class NoteRenderState
 	
 	public int getWidth()
 	{
+		if(noteToRender == null || noteToRender.getIcon(renderType) == null)
+		{
+			return 0;
+		}
 		return noteToRender.getIcon(renderType).getWidth();
 	}
 }

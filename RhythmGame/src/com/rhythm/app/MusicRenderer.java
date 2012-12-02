@@ -51,13 +51,13 @@ public class MusicRenderer extends SurfaceView implements Callback
 
 	private void Initialise()
 	{
-		ArrayList<Note> notes = new ArrayList<Note>();
+		ArrayList<Note> notes2 = new ArrayList<Note>();
 		
-		notes.add(new Quaver(0, false));
-		notes.add(new Quaver(0, false));
-		notes.add(new Crotchet(0, true));
-		notes.add(new Quaver(0, true));
-		notes.add(new Semiquaver(0, true));
+		notes2.add(new Quaver(0, false));
+		notes2.add(new Quaver(0, false));
+		notes2.add(new Crotchet(0, true));
+		notes2.add(new Quaver(0, true));
+		notes2.add(new Semiquaver(0, true));
 		
 		NotesGenerator gen = new NotesGenerator(Difficulty.EASY);
 		
@@ -103,19 +103,7 @@ public class MusicRenderer extends SurfaceView implements Callback
 	}
 
 	public void draw(Canvas canvas)
-<<<<<<< HEAD
-	{
-		ArrayList<Note> notes = new ArrayList<Note>();
-		
-		notes.add(new Quaver(0, false));
-		notes.add(new Quaver(0, false));
-		notes.add(new Crotchet(0, true));
-		notes.add(new Quaver(0, true));
-		notes.add(new Semiquaver(0, true));
-		
-=======
 	{	
->>>>>>> origin/Mirosta
 		RenderBar bar = new RenderBar(notes);
 		
 		float noteOffset = 0;
@@ -140,5 +128,10 @@ public class MusicRenderer extends SurfaceView implements Callback
 		}
 		
 		bar.Draw(canvas, 20-noteOffset, centreY, white);
+	}
+	
+	public void setNotes(ArrayList<Note> newNotes)
+	{
+		notes = newNotes;
 	}
 }

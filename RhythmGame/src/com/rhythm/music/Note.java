@@ -38,7 +38,7 @@ public abstract class Note
 	
 	public double getLength()
 	{
-		return trueLength;
+		return undottedLength;
 	}
 	
 	public boolean Rest()

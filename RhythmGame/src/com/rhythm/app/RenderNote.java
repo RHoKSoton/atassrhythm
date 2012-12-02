@@ -56,9 +56,7 @@ public class RenderNote
 		Note currentNote = notes.get(pos);
 		Note lastNote = getNote(notes, pos - 1);
 		Note nextNote = getNote(notes, pos + 1);
-<<<<<<< HEAD
-=======
-		
+
 		if(currentNote.Rest()) renderStates.add(new NoteRenderState(currentNote, IconType.REST));
 		else if(noteState == -1) renderStates.add(new NoteRenderState(currentNote, IconType.SINGLE));
 		else if(noteState == 0)
@@ -87,7 +85,7 @@ public class RenderNote
 		{
 			renderStates.add(new NoteRenderState(currentNote, IconType.ENDJOIN));
 		}
->>>>>>> origin/Mirosta
+
 	}
 	
 	static Note getNote(ArrayList<Note> notes, int position)

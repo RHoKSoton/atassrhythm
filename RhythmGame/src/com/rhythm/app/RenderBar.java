@@ -62,6 +62,8 @@ public class RenderBar
 	static boolean nextNoteJoinable(int pos, ArrayList<Note> notes, int noNotes, float length, boolean hasNoteVariation)
 	{
 		Note nextNote = RenderNote.getNote(notes, pos + 1);
+		if(nextNote == null) return false;
+		
 		float newLength = length + (float)nextNote.getLength();
 		
 		if(!RenderNote.isJoinable(nextNote)) return false;
