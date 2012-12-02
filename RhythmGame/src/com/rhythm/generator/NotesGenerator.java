@@ -1,5 +1,6 @@
 package com.rhythm.generator;
 
+import java.util.ArrayList;
 import java.util.Random;
 import com.rhythm.app.Difficulty;
 import com.rhythm.music.*;
@@ -12,6 +13,22 @@ public class NotesGenerator
 	public NotesGenerator(Difficulty trickiness)
 	{
 			difficulty = trickiness;
+	}
+	
+	public ArrayList<Note> generateBar()
+	{
+		ArrayList<Note> notes = new ArrayList<Note>();
+		Note next;
+		double length = 1;
+		
+		while (length > 0)
+		{
+			next = chooseNote(length);
+			notes.add(next);
+			length = length - next.getLength();
+		}
+		
+		return notes;
 	}
 	
 	public Note chooseNote(double length)
