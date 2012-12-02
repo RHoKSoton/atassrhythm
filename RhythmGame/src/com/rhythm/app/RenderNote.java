@@ -14,24 +14,12 @@ public class RenderNote
 	Note actualNote;
 	
 	ArrayList<NoteRenderState> renderStates = new ArrayList<NoteRenderState>();
+	int noteState = -1; //-1 Not connected, 0 start, 1 middle, 2 end
 	
 	public RenderNote(int notePos, ArrayList<Note> notes) 
 	{
 		//TODO:Change to isJoinable instead of instanceof
 		actualNote = getNote(notes, notePos);
-		
-		if(actualNote.Rest()) renderStates.add(new NoteRenderState(actualNote, IconType.REST));
-		else
-		{
-			int state = -1; //getState(getNote(notes, notePos), getNote(notes, notePos-1), getNote(notes, notePos+1)); //-1 not join, 0 start, 1 middle, 2 end
-		
-			switch(state)
-			{
-			case -1: renderStates.add(new NoteRenderState(actualNote, IconType.SINGLE)); break;
-				case 0: renderStates.add(new NoteRenderState(actualNote, IconType.INJOIN)); break;
-				case 2: renderStates.add(new NoteRenderState(actualNote, IconType.ENDJOIN)); break;
-			}
-		}
 	}
 	
 	public void Draw(Canvas canvas, BarOffsetReference xOffset, float centreY, Paint paintMode)
@@ -53,6 +41,21 @@ public class RenderNote
 		xOffset.setOffset(xOffset.getOffset() + largestWidth);
 	}
 	
+	public int getNoteState()
+	{
+		return noteState;
+	}
+	
+	public void setNoteState(int value)
+	{
+		noteState = value;
+	}
+	
+	public void addRenderStates()
+	{
+		
+	}
+	
 	static Note getNote(ArrayList<Note> notes, int position)
 	{
 		if(position < 0 || position >= notes.size()) return null;
@@ -70,7 +73,7 @@ public class RenderNote
 	
 	static boolean isJoinable(Note note)
 	{
-		if(note == null || !(note instanceof Joinable)) return false;
+		if(note == null || !(note instanceof Joinable) || note.Rest()) return false;
 		return true;
 	}
 

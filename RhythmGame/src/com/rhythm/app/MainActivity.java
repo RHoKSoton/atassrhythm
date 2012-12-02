@@ -65,7 +65,7 @@ public class MainActivity extends Activity
 			public void run() 
 			{
 				//Play the given sound with leftVolume 100%, right volume 100%, lowest priority, no looping, normal speed
-				pool.play(clickID, 1, 1, 0, 0, 1);
+				pool.play(clickID, 1, 1, 10, 0, 1);
 			}
 			
 		};
