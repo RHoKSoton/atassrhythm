@@ -35,7 +35,13 @@ public class RenderBar
 					length += note.getLength();
 					noNotes ++;
 				}
+				else if(noNotes > 0)
+				{
+					toRender.get(i).setNoteState(2); 
+					shouldReset = true;
+				}
 			}
+			else shouldReset = true;
 			
 			if(shouldReset)
 			{
