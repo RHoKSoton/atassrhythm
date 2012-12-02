@@ -4,13 +4,24 @@ import com.rhythm.music.Note;
 
 public class NoteScore {
 	
+	
 	private boolean scorable;
+		
 	private int score;
 	private Note note;
 	
-	public NoteScore() {
+	public NoteScore(Note thisNote, double beats) {
 		scorable = true;
 		score = 0;
+		note = thisNote;
+		if (note.Rest())
+		{
+			score = 10;
+		}
+		else
+		{
+			score = 0;
+		}
 		
 	}
 	
@@ -20,10 +31,7 @@ public class NoteScore {
 	}
 	
 	public void setScore(int points){
-		if (scorable)
-		{
 			score = points;
-		}
 	}
 	
 	public int getScore()
@@ -34,5 +42,10 @@ public class NoteScore {
 	public Note getNote()
 	{
 		return note;
+	}
+	
+	public void setNote(Note aNote)
+	{
+		note = aNote;
 	}
 }

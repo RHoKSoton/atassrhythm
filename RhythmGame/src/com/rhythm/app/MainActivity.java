@@ -17,13 +17,13 @@ import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-import com.rhythm.generator.NoteScore;
+import com.rhythm.app.NoteScore;
 
 public class MainActivity extends Activity 
 {
 
-	private static float bpm = 120;
-	private static int beatsPassed = 0;
+	
+	private static int beatsPassed;
 	private static HashMap<String, Bitmap> bitmaps = new HashMap<String, Bitmap>();
 	
 	SoundPool pool = new SoundPool(1, AudioManager.STREAM_NOTIFICATION, 0);
@@ -70,15 +70,15 @@ public class MainActivity extends Activity
 			{
 				//Play the given sound with leftVolume 100%, right volume 100%, lowest priority, no looping, normal speed
 				pool.play(clickID, 1, 1, 10, 0, 1);
-				beatsPassed ++;
-				NoteScore.changeParity();
+				
+				
 			}
 			
 		};
 		
-		beatsPassed = 0;
+		beatsPassed=0;
 		
-		metronome.schedule(metronomeTick, 1000, (long)(60000f/bpm));
+		metronome.schedule(metronomeTick, 1000, (long)(60000f/120f));
 	}
 	
 	@Override 
@@ -137,7 +137,9 @@ public class MainActivity extends Activity
 
 	public void onTapTouched(MotionEvent event)
 	{
-		
+		//if (event.getAction()==MotionEvent.ACTION_DOWN){
+		//	Scorer myScorer = new Scorer();
+		//}
 	}
 	
 	public static Bitmap getBitmap(String name)

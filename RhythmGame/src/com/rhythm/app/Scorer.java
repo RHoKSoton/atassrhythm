@@ -1,6 +1,7 @@
 package com.rhythm.app;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 import com.rhythm.music.Note;
@@ -8,24 +9,36 @@ import com.rhythm.music.Note;
 public class Scorer
 {
 	boolean parity = false;
-	ArrayList<NoteScore> items;
+	static HashMap<Double,NoteScore> items;
+	static ArrayList<Note> theNotes;
 	
 	public Scorer(ArrayList<Note> notes)
 	{
-		Iterator<E> it = notes.iterator();
+		Iterator<Note> it = notes.iterator();
 		Note note;
-		while it.hasNext(){
+		Double length= new Double(0);
+		theNotes = notes;
+		
+		while (it.hasNext()){
 			note = it.next();
-			items.add(new NoteScore())
+			items.put(length, new NoteScore(note,length));
+			length = length + note.getLength();
 		}
 		
 		
 	}
 
-	//call when a new note takes focus of the program
-	public void pressed() 
+	//call when button pressed
+	public void pressed(int lengthPassed)
 	{
-		parity = !parity;
+		NoteScore thing = items.get(lengthPassed);
+		if (thing.getNote().Rest()){//if they clicked when its a rest
+			thing.setScore(0);//that rest gets no points
+		} else if(thing.getScore()!=0){//if they already have points
+			thing.notScorable();//mark it as not scorable
+		} else {
+			thing.setScore(10);//otherwise give them points for this note
+		}
 		
 	}
 }
