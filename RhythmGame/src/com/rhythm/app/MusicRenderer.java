@@ -5,7 +5,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -15,12 +14,10 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
 
+import com.rhythm.generator.NotesGenerator;
 import com.rhythm.music.Crotchet;
-import com.rhythm.music.IconType;
-import com.rhythm.music.Minim;
 import com.rhythm.music.Note;
 import com.rhythm.music.Quaver;
-import com.rhythm.music.Semibreve;
 import com.rhythm.music.Semiquaver;
 
 
@@ -28,6 +25,8 @@ public class MusicRenderer extends SurfaceView implements Callback
 {
 	SurfaceHolder holder;
 	Timer tmr;
+	
+	ArrayList<Note> notes = new ArrayList<Note>();
 	
 	public MusicRenderer(Context context) 
 	{
@@ -52,6 +51,18 @@ public class MusicRenderer extends SurfaceView implements Callback
 
 	private void Initialise()
 	{
+		ArrayList<Note> notes = new ArrayList<Note>();
+		
+		notes.add(new Quaver(0, false));
+		notes.add(new Quaver(0, false));
+		notes.add(new Crotchet(0, true));
+		notes.add(new Quaver(0, true));
+		notes.add(new Semiquaver(0, true));
+		
+		NotesGenerator gen = new NotesGenerator(Difficulty.EASY);
+		
+		notes = gen.generateBar();
+		
 		holder = this.getHolder();
 		holder.addCallback(this);
 	}
@@ -92,6 +103,7 @@ public class MusicRenderer extends SurfaceView implements Callback
 	}
 
 	public void draw(Canvas canvas)
+<<<<<<< HEAD
 	{
 		ArrayList<Note> notes = new ArrayList<Note>();
 		
@@ -101,6 +113,9 @@ public class MusicRenderer extends SurfaceView implements Callback
 		notes.add(new Quaver(0, true));
 		notes.add(new Semiquaver(0, true));
 		
+=======
+	{	
+>>>>>>> origin/Mirosta
 		RenderBar bar = new RenderBar(notes);
 		
 		float noteOffset = 0;

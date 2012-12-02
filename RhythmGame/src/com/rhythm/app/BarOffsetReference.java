@@ -7,7 +7,7 @@ public class BarOffsetReference
 	
 	public BarOffsetReference(float offset) 
 	{
-		// TODO Auto-generated constructor stub
+		xOffset = offset;
 	}
 
 	public void setOffset(float value)

@@ -45,13 +45,16 @@ public class NotesGenerator
 		{
 		case EASY :
 			range = 3;
+			break;
 		case MEDIUM :
 			range = 4;
+			break;
 		case HARD :
 			range = 5;
+			break;
 		default :
 			range = 0;
-				
+			break;
 		}
 		//the offset prevents the randomiser from selecting a note that is too large for the bar
 		//this is only because our current renderer cannot display notes that overflow into the next bar

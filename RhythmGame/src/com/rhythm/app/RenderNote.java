@@ -38,7 +38,7 @@ public class RenderNote
 			}
 		}
 		
-		xOffset.setOffset(xOffset.getOffset() + largestWidth);
+		xOffset.setOffset(xOffset.getOffset() + largestWidth + (noteState < 0 || noteState > 1? 3:-5));
 	}
 	
 	public int getNoteState()
@@ -56,6 +56,38 @@ public class RenderNote
 		Note currentNote = notes.get(pos);
 		Note lastNote = getNote(notes, pos - 1);
 		Note nextNote = getNote(notes, pos + 1);
+<<<<<<< HEAD
+=======
+		
+		if(currentNote.Rest()) renderStates.add(new NoteRenderState(currentNote, IconType.REST));
+		else if(noteState == -1) renderStates.add(new NoteRenderState(currentNote, IconType.SINGLE));
+		else if(noteState == 0)
+		{
+			if(currentNote.getLength() > 1.0/16.0 || nextNote.getLength() == currentNote.getLength()) renderStates.add(new NoteRenderState(currentNote, IconType.INJOIN));
+			else if(currentNote.getLength() <= 1.0/16.0 && nextNote.getLength() != currentNote.getLength())
+			{
+				renderStates.add(new NoteRenderState(currentNote, IconType.CUTJOIN));
+				renderStates.add(new NoteRenderState(nextNote, IconType.INJOIN));
+			}
+		}
+		else if(noteState == 1)
+		{
+			if(currentNote.getLength() > 1.0/16.0)
+			{
+				renderStates.add(new NoteRenderState(currentNote, IconType.ENDJOIN));
+				renderStates.add(new NoteRenderState(currentNote, IconType.INJOIN));
+			}
+			else
+			{
+				renderStates.add(new NoteRenderState(lastNote, IconType.ENDJOIN));
+				renderStates.add(new NoteRenderState(nextNote, IconType.INJOIN));
+			}
+		}
+		else
+		{
+			renderStates.add(new NoteRenderState(currentNote, IconType.ENDJOIN));
+		}
+>>>>>>> origin/Mirosta
 	}
 	
 	static Note getNote(ArrayList<Note> notes, int position)
