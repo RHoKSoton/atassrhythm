@@ -36,6 +36,11 @@ public abstract class Note
 	return null;
 	}
 	
+	public double getLength()
+	{
+		return trueLength;
+	}
+	
 	public boolean Rest()
 	{//true for rest, false for note
 		return isRest;
