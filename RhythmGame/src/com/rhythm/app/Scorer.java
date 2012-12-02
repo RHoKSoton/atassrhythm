@@ -1,12 +1,23 @@
 package com.rhythm.app;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import com.rhythm.music.Note;
+
 public class Scorer
 {
 	boolean parity = false;
+	ArrayList<NoteScore> items;
 	
-	
-	public Scorer()
+	public Scorer(ArrayList<Note> notes)
 	{
+		Iterator<E> it = notes.iterator();
+		Note note;
+		while it.hasNext(){
+			note = it.next();
+			items.add(new NoteScore())
+		}
 		
 		
 	}
