@@ -97,6 +97,7 @@ public class MainActivity extends Activity
 		loadFile("sixteen_endjoin");
 		loadFile("sixteen_single");
 		loadFile("sixteen_rest");
+		loadFile("sixteen_cutjoin");
 		
 		try 
 		{
