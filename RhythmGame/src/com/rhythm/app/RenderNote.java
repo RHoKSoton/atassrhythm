@@ -51,9 +51,11 @@ public class RenderNote
 		noteState = value;
 	}
 	
-	public void addRenderStates()
+	public void addRenderStates(int pos, ArrayList<Note> notes)
 	{
-		
+		Note currentNote = notes.get(pos);
+		Note lastNote = getNote(notes, pos - 1);
+		Note nextNote = getNote(notes, pos + 1);
 	}
 	
 	static Note getNote(ArrayList<Note> notes, int position)
