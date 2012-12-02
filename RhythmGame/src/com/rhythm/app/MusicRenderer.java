@@ -95,8 +95,8 @@ public class MusicRenderer extends SurfaceView implements Callback
 	{
 		ArrayList<Note> notes = new ArrayList<Note>();
 		
-		notes.add(new Semibreve(0, true));
-		notes.add(new Minim(0, true));
+		notes.add(new Quaver(0, false));
+		notes.add(new Quaver(0, false));
 		notes.add(new Crotchet(0, true));
 		notes.add(new Quaver(0, true));
 		notes.add(new Semiquaver(0, true));

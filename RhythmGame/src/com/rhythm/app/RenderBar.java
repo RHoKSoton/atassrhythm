@@ -27,12 +27,12 @@ public class RenderBar
 			{
 				if(nextNoteJoinable(i, ToRender, noNotes, length, hasNoteVariation))
 				{
-					//TODO: if(RenderNote.getNote(ToRender, i+1).getLength() != note.getLength()) hasNoteVariation = true;
+					if(RenderNote.getNote(ToRender, i+1).getLength() != note.getLength()) hasNoteVariation = true;
 					
 					if(noNotes == 0 && RenderNote.isJoinable(RenderNote.getNote(ToRender, i+1))) toRender.get(i).setNoteState(0);
 					else toRender.get(i).setNoteState(1); 
-				
-					length += 0.25f;
+					
+					length += note.getLength();
 					noNotes ++;
 				}
 			}
@@ -43,18 +43,24 @@ public class RenderBar
 				length = 0;
 				hasNoteVariation = false;
 			}
-			//TODO: Change to actual length method
+		}
+		
+		for(int i=0; i < toRender.size();i++)
+		{
+			RenderNote note = toRender.get(i);
+			
+			note.addRenderStates(i, ToRender);
 		}
 	}
 	
 	static boolean nextNoteJoinable(int pos, ArrayList<Note> notes, int noNotes, float length, boolean hasNoteVariation)
 	{
 		Note nextNote = RenderNote.getNote(notes, pos + 1);
-		float newLength = length + 0.25f;
+		float newLength = length + (float)nextNote.getLength();
 		
 		if(!RenderNote.isJoinable(nextNote)) return false;
 		if(noNotes == 3) return false;
-		if(newLength > 0.5f/*TODO: nextNote.getLength*/) return false;
+		if(newLength > 0.5f) return false;
 		if(hasNoteVariation && newLength > 0.25f) return false;
 		
 		return true;
