@@ -18,10 +18,15 @@ public class NoteRenderState
 		renderType = RenderType;
 	}
 
-	public void Draw(Canvas canvas, float xOffset, float centreY, Paint paintMode)
+	public void Draw(Canvas canvas, BarOffsetReference xOffset, float centreY, Paint paintMode)
 	{
 		Bitmap toDraw = noteToRender.getIcon(renderType);
 		
-		canvas.drawBitmap(toDraw, xOffset, centreY - toDraw.getHeight() + 5, paintMode);
+		canvas.drawBitmap(toDraw, xOffset.getOffset(), centreY - toDraw.getHeight() + 5, paintMode);
+	}
+	
+	public int getWidth()
+	{
+		return noteToRender.getIcon(renderType).getWidth();
 	}
 }
