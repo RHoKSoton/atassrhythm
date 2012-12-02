@@ -21,6 +21,7 @@ import android.widget.Button;
 public class MainActivity extends Activity 
 {
 
+	private static float bpm = 120;
 	private static HashMap<String, Bitmap> bitmaps = new HashMap<String, Bitmap>();
 	
 	SoundPool pool = new SoundPool(1, AudioManager.STREAM_NOTIFICATION, 0);
@@ -70,7 +71,7 @@ public class MainActivity extends Activity
 			
 		};
 		
-		metronome.schedule(metronomeTick, 1000, (long)(60000f/120f));
+		metronome.schedule(metronomeTick, 1000, (long)(60000f/bpm));
 	}
 	
 	@Override 

@@ -102,7 +102,7 @@ public class NotesGenerator
 		case 4 :
 			return new Semiquaver(0,rest);
 		default :
-			return  null;
+			return null;
 		}
 		
 		

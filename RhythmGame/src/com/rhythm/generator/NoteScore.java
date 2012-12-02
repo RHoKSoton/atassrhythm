@@ -4,8 +4,17 @@ import com.rhythm.music.Note;
 
 public class NoteScore {
 	
+	private  final static int baseScore = 50;
+	
 	private boolean scorable;
-	private int score;
+	
+	private double startTime;
+	private double endTime;
+	
+	private boolean startRecieved;
+	private boolean endRecieved;
+	
+	private int score = 0;
 	private Note note;
 	
 	public NoteScore() {
