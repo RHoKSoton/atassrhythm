@@ -12,11 +12,12 @@ public class Scorer
 	
 	public Scorer(ArrayList<Note> notes)
 	{
-		Iterator<E> it = notes.iterator();
+		Iterator<Note> it = notes.iterator();
 		Note note;
-		while it.hasNext(){
+		while(it.hasNext())
+		{
 			note = it.next();
-			items.add(new NoteScore())
+			items.add(new NoteScore());
 		}
 		
 		

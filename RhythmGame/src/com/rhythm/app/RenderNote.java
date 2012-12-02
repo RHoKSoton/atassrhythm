@@ -30,7 +30,7 @@ public class RenderNote
 			if(state.getWidth() > largestWidth) largestWidth = state.getWidth();
 		}
 		
-		if(xOffset.getOffset() >= 20 && xOffset.getOffset() + largestWidth < canvas.getWidth() - 20)
+		if(xOffset.getOffset() + largestWidth >= 20 && xOffset.getOffset() < canvas.getWidth() - 20)
 		{
 			for(NoteRenderState state : renderStates)
 			{

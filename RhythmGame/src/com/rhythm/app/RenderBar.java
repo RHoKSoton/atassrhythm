@@ -74,16 +74,22 @@ public class RenderBar
 		return true;
 	}
 	
-	public void Draw(Canvas canvas, float xOffset, float centreY, Paint paintMode)
+	//Return -1 for all not visible to the left, 0 for some part is visible, 1 for some part not visible to the right
+	public int Draw(Canvas canvas, BarOffsetReference xOffset, float centreY, Paint paintMode)
 	{
-		BarOffsetReference offset = new BarOffsetReference(xOffset);
+		BarOffsetReference offset = xOffset;
+		int initialPos = (int)offset.getOffset();
+		
+		offset.setOffset(offset.getOffset() + 5);
 		
 		for(RenderNote note : toRender)
 		{
 			note.Draw(canvas, offset, centreY, paintMode);
-			
-			if(offset.getOffset() >= canvas.getWidth()-20) return;
 		}
+		
+		offset.setOffset(offset.getOffset() + 5);
+		
+		return (int)offset.getOffset()-initialPos;
 	}
 
 }

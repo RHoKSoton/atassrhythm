@@ -71,7 +71,7 @@ public class MainActivity extends Activity
 				//Play the given sound with leftVolume 100%, right volume 100%, lowest priority, no looping, normal speed
 				pool.play(clickID, 1, 1, 10, 0, 1);
 				beatsPassed ++;
-				NoteScore.changeParity();
+				//NoteScore.changeParity();
 			}
 			
 		};
